@@ -3,13 +3,17 @@ Linux and Ansible scripts to deploy an ELK environment
 
 ## Automated ELK Stack Deployment
 
-The files in this repository were used to configure the network depicted below.
+The files in this repository were used to configure the network illustrated below.
 
 ![](diagrams/Network_Diagram.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  - 
+```yaml
+---
+"{{ ansible/pentest.yml }}" is an orchestration tool written in Python.
+...
+```
 
 This document contains the following details:
 - Description of the Topology
