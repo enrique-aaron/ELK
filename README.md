@@ -101,7 +101,7 @@ A summary of the access policies in place can be found in the table below.
 | Jump Box | Yes                 | 108.202.108.33       | SSH
 | ELK      | Yes                 | 108.202.108.33       | HTTP
 | Load Blancer | Yes                  | 108.202.108.33       | HTTP
-| Web2     | No                  |       | 
+| Web1     | No                  |       | 
 | Web2     | No                  |      | 
 | Web3     | No                  |      | 
 
@@ -230,7 +230,6 @@ We have installed the following Beats on these machines:
 ### [Metricbeat Ansible playbook](ansible/roles/metricbeat-playbook.yml) to install and lauch metricbeat on the werbervers VMs
 
 ```yaml
----
 ---
 - name: Install metric beat
   hosts: webservers
