@@ -99,9 +99,8 @@ A summary of the access policies in place can be found in the table below.
 |----------|---------------------|----------------------|----------------------|
 | Jump Box | Yes                 | 108.202.108.33       | SSH
 | ELK      | Yes                 | 108.202.108.33       | HTTP
-|          |                     |                      |
 
-### Elk Configuration
+### Elk Playbook
 
 ```yaml
 ---
@@ -170,7 +169,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](images/Screenshot%202021-11-16%2015.12.39.png)
+(images/Screenshot%202021-11-16%2015.12.39.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -190,25 +189,44 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the SSH public key file to the target machine, on folder: \[user~\]/.ssh/authorized_keys
-- Update the host file to include the ip of the target machine
+- Copy the SSH public key file to the target machines, on folder: \[user~\]/.ssh/authorized_keys
+- Modify the host file ![ansible/hosts](ansible/hosts) to include the ip of the target machines in this way:
+```yaml
+[webservers]
+10.0.0.6 ansible_python_interpreter=/usr/bin/python3
+10.0.0.7 ansible_python_interpreter=/usr/bin/python3
+10.0.0.8 ansible_python_interpreter=/usr/bin/python3
+
+[elk]
+10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+```
+
 - Run the playbook, verify it's execution, and navigate to the target machine to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- The install filebeat playbook is located on: ![ansible/files/filebeat-config.yml](ansible/files/filebeat-config.yml)
+- Run the install filebeat playbook located on: ![ansible/roles/filebeat-playbook.yml](ansible/roles/filebeat-playbook.yml)
 
-<pre>
- <code>
-  <a href="ansible/files/filebeat-config.yml">gmarciani</a>
- </code>
-</pre>
+- Run the install metricbeat playbook located on: ![ansible/roles/metricbeat-playbook.yml](ansible/roles/metricbeat-playbook.yml) 
 
-- The install filebeat playbook is located on: ![ansible/files/metricbeat-config.yml](ansible/files/metricbeat-config.yml) 
-- host file should be modified to run the playbook into an specific set of  machines
+- Ansible run the ELK playbook on the servers defined by the section **elk** of the hosts file
+```yaml
+- name: Config Web VM with Docker
+  hosts: elk
+  remote_user: azureuser
+  become: true
+  tasks:
+   ...
+```
+- Ansible run the filebeat playbook on the servers defined by the section **webservers** of the hosts file
 
-- file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
-- The host file 
-- The URL http://23.99.208.190:5601/app/kibana#/home should be used to chjeck that the ELK server is running
+```yaml
+---
+- name: installing and launching filebeat
+  hosts: webservers
+  become: yes
+  tasks:
+   ...
+```
+- The URL http://23.99.208.190:5601/app/kibana#/home should be used to check that the ELK server is running
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
