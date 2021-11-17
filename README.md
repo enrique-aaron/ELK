@@ -332,6 +332,8 @@ SSH into the control node and follow the steps below:
 ```
 - The URL http://23.99.208.190:5601/app/kibana#/home should be used to check that the ELK server is running
 
+![](images/Screenshot%202021-11-16%2010.53.39.png)
+
 [_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._]
 
 hola
