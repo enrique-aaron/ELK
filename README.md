@@ -196,6 +196,9 @@ SSH into the control node and follow the steps below:
 
 _TODO: Answer the following questions to fill in the blanks:_
 - The install filebeat playbook is located on: ![FileBeat configuration file](ansible/files/filebeat-config.yml)
+
+```yaml:ansible/files/filebeat-config.yml  
+```
 - The install filebeat playbook is located on: ![MetricBeat configuration file](ansible/files/metricbeat-config.yml) 
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
 - 
