@@ -211,9 +211,9 @@ SSH into the control node and follow the steps below:
 
 - Run the install filebeat playbook located on: ![ansible/roles/filebeat-playbook.yml](ansible/roles/filebeat-playbook.yml)
 
-- Run the install metricbeat playbook located on: ![ansible/roles/metricbeat-playbook.yml](ansible/roles/metricbeat-playbook.yml) 
+- Run the install [metricbeat playbook](ansible/roles/metricbeat-playbook.yml) located on the [ansible/roles](ansible/roles) 
 
-- Ansible run the ELK playbook on the servers defined by the section **elk** of the hosts file
+- Ansible run the ELK playbook on the servers defined by the section **elk** of the [hosts](ansible/hosts) file
 ```yaml
 - name: Config Web VM with Docker
   hosts: elk
@@ -222,7 +222,7 @@ SSH into the control node and follow the steps below:
   tasks:
    ...
 ```
-- Ansible run the filebeat playbook on the servers defined by the section **webservers** of the hosts file
+- Ansible run the filebeat playbook on the servers defined by the section **webservers** of the [hosts](ansible/hosts) file
 
 ```yaml
 ---
