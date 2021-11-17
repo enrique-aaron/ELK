@@ -76,9 +76,9 @@ The configuration details of each machine may be found below.
 | Name     | Function                 | IP Address | Operating System |
 |----------|--------------------------|------------|------------------|
 | Jump Box | Ansible and admin Gateway| 10.0.0.5   | Linux With Docker|
-| Web 1    | Web Server Pool Member   | 10.0.0.6   | Linux With Docker|
-| Web 2    | Web Server Pool Member   | 10.0.0.7   | Linux With Docker|
-| Web 3    | Web Server Pool Member   | 10.0.0.8   | Linux With Docker|
+| Web1     | Web Server Pool Member   | 10.0.0.6   | Linux With Docker|
+| Web2     | Web Server Pool Member   | 10.0.0.7   | Linux With Docker|
+| Web3     | Web Server Pool Member   | 10.0.0.8   | Linux With Docker|
 | ELK      | ELK Stack Server         | 10.1.0.4   | Linux With Docker|
 
 ### Access Policies
@@ -100,8 +100,13 @@ A summary of the access policies in place can be found in the table below.
 |----------|---------------------|----------------------|----------------------|
 | Jump Box | Yes                 | 108.202.108.33       | SSH
 | ELK      | Yes                 | 108.202.108.33       | HTTP
+| Load Blancer | Yes                  | 108.202.108.33       | HTTP
+| Web2     | No                  |       | 
+| Web2     | No                  |      | 
+| Web3     | No                  |      | 
 
-### Elk Playbook
+
+### Ansible playbook to install contenerized ELK Stack on the VM
 
 ```yaml
 ---
