@@ -190,13 +190,15 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the SSH public key file to the target machine, on folder: \[remoteuser\]/.ssh/authorized_keys
+- Copy the SSH public key file to the target machine, on folder: \[user~\]/.ssh/authorized_keys
 - Update the host file to include the ip of the target machine
-- Run the playbook, and navigate to the target machine to check that the installation worked as expected.
+- Run the playbook, verify it's execution, and navigate to the target machine to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
+- The install filebeat playbook is located on: ![FileBeat configuration file](ansible/files/filebeat-config.yml)
+- The install filebeat playbook is located on: ![MetricBeat configuration file](ansible/files/metricbeat-config.yml) 
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+- 
 - _Which URL do you navigate to in order to check that the ELK server is running?
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
