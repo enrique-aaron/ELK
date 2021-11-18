@@ -292,7 +292,7 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the SSH public key file to the target machines, on folder: \[user~\]/.ssh/authorized_keys
-- Modify the host file [ansible/hosts](ansible/hosts) to include the ip of the target machines in this way:
+- Modify the host file [/etc/ansible/hosts](ansible/hosts) to include the ip of the target machines in this way:
 ```yaml
 [webservers]
 10.0.0.6 ansible_python_interpreter=/usr/bin/python3
@@ -307,11 +307,11 @@ SSH into the control node and follow the steps below:
 
 ## Beats installation
 
-- Run the install [filebeat playbook](ansible/roles/filebeat-playbook.yml) located on the [ansible/roles](ansible/roles) folder
+- Run the install [filebeat playbook](ansible/roles/filebeat-playbook.yml) located on the [/etc/ansible/roles](ansible/roles) folder
 
-- Run the install [metricbeat playbook](ansible/roles/metricbeat-playbook.yml) located on the [ansible/roles](ansible/roles) folder
+- Run the install [metricbeat playbook](ansible/roles/metricbeat-playbook.yml) located on the [/etc/ansible/roles](ansible/roles) folder
 
-- Ansible run the ELK playbook on the servers defined by the section **elk** of the [hosts](ansible/hosts) file located on the [ansible](ansible) folder
+- Ansible run the ELK playbook on the servers defined by the section **elk** of the [hosts](ansible/hosts) file located on the [/etc/ansible/ansible](ansible) folder
 ```yaml
 - name: Config Web VM with Docker
   hosts: elk
